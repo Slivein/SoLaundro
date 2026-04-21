@@ -54,6 +54,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'laundry_maintenance' => (bool) env('LAUNDRY_MAINTENANCE', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
