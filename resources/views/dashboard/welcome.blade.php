@@ -10,9 +10,10 @@
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4">
-                {{-- <a href="{{ route('login') }}" class="rounded-2xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
+                <a href="{{ route('dashboard.login') }}"
+                    class="rounded-2xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
                     Member Login
-                </a> --}}
+                </a>
                 <a href="{{ route('dashboard.home') }}"
                     class="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
                     Open Dashboard

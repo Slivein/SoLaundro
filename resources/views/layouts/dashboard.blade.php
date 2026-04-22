@@ -11,6 +11,10 @@
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
+
+    <!-- filemtime is for version-ing the css  -->
+    <link href="{{ asset('css/main.css') }}?v={{ filemtime(public_path('css/main.css')) }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}?v={{ filemtime(public_path('css/styles.css')) }}" rel="stylesheet">
 </head>
 
 <body class="min-h-screen bg-[radial-gradient(circle_at_top,_#ecfeff,_#f8fafc_42%,_#e2e8f0_100%)] text-slate-900">
@@ -36,9 +40,8 @@
                         <a href="{{ route('dashboard.profile.edit') }}"
                             class="rounded-full px-4 py-2 transition hover:bg-slate-100 hover:text-slate-900">Profile</a>
                     @else
-                        Login
-                        {{-- <a href="{{ route('login') }}"
-                            class="rounded-full bg-slate-950 px-4 py-2 text-white transition hover:bg-slate-800">Log in</a> --}}
+                        <a href="{{ route('dashboard.login') }}"
+                            class="rounded-full bg-slate-950 px-4 py-2 text-white transition hover:bg-slate-800">Log in</a>
                     @endauth
                 </nav>
             </div>

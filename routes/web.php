@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\OrderController;
@@ -14,6 +15,11 @@ Route::middleware(['maintenance'])->group(function () {
     Route::get('/', WelcomeController::class)->name('welcome');
 
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        Route::middleware(['redirect.if.member'])->group(function () {
+            Route::get('/login', [LoginController::class, 'create'])->name('login');
+            Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+        });
+
         Route::middleware(['auth.member'])->group(function () {
             // After Login Routes
             Route::get('/home', HomeController::class)->name('home');

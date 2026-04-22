@@ -8,20 +8,13 @@
             <p class="mt-2 text-sm text-gray-600">Use your email and password to continue.</p>
         </div>
 
-        <form method="POST" action="{{ route('login.store') }}" class="space-y-5">
+        <form method="POST" action="{{ route('dashboard.login.store') }}" class="space-y-5" style="width: 50%;">
             @csrf
 
             <div>
                 <label for="email" class="mb-2 block text-sm font-medium text-gray-700">Email</label>
-                <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value="{{ old('email') }}"
-                    required
-                    autofocus
-                    class="w-full rounded-2xl border border-gray-300 px-4 py-3 text-sm text-gray-900 focus:border-blue-300 focus:outline-none focus:ring"
-                >
+                <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus
+                    class="w-full rounded-2xl border border-gray-300 px-4 py-3 text-sm text-gray-900 focus:border-blue-300 focus:outline-none focus:ring">
                 @error('email')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -29,13 +22,8 @@
 
             <div>
                 <label for="password" class="mb-2 block text-sm font-medium text-gray-700">Password</label>
-                <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    required
-                    class="w-full rounded-2xl border border-gray-300 px-4 py-3 text-sm text-gray-900 focus:border-blue-300 focus:outline-none focus:ring"
-                >
+                <input id="password" name="password" type="password" required
+                    class="w-full rounded-2xl border border-gray-300 px-4 py-3 text-sm text-gray-900 focus:border-blue-300 focus:outline-none focus:ring">
                 @error('password')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -46,10 +34,8 @@
                 Keep me signed in
             </label>
 
-            <button
-                type="submit"
-                class="w-full rounded-2xl bg-sky-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-800"
-            >
+            <button type="submit"
+                class="w-full rounded-2xl bg-sky-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-800">
                 Sign in
             </button>
         </form>
