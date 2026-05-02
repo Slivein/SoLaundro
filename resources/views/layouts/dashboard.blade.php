@@ -39,7 +39,19 @@
                             class="rounded-full px-4 py-2 transition hover:bg-slate-100 hover:text-slate-900">Invoices</a>
                         <a href="{{ route('dashboard.profile.edit') }}"
                             class="rounded-full px-4 py-2 transition hover:bg-slate-100 hover:text-slate-900">Profile</a>
+                        <a href="{{ route('dashboard.users.create') }}"
+                            class="rounded-full px-4 py-2 transition hover:bg-slate-100 hover:text-slate-900">Register
+                            User</a>
+                        <form method="POST" action="{{ route('dashboard.logout') }}">
+                            @csrf
+                            <button type="submit"
+                                class="rounded-full px-4 py-2 transition hover:bg-slate-100 hover:text-slate-900 F">
+                                Log out
+                            </button>
+                        </form>
                     @else
+                        <a href="{{ route('dashboard.register') }}"
+                            class="rounded-full px-4 py-2 transition hover:bg-slate-100 hover:text-slate-900">Register</a>
                         <a href="{{ route('dashboard.login') }}"
                             class="rounded-full bg-slate-950 px-4 py-2 text-white transition hover:bg-slate-800">Log in</a>
                     @endauth
@@ -51,7 +63,7 @@
             @yield('content')
         </main>
 
-        <div>v0.1.1</div>
+        <div>v0.1.2</div>
     </div>
 </body>
 

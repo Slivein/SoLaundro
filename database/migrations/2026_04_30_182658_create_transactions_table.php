@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('member_id')->constrained('members')->cascadeOnDelete();
-            $table->foreignId('cashier_id')->nullable()->constrained('staff')->nullOnDelete();
-            $table->foreignId('deliverer_id')->nullable()->constrained('staff')->nullOnDelete();
+            $table->foreignId('cashier_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('deliverer_id')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('deal_id')->nullable()->constrained('deals')->nullOnDelete();
             $table->string('status')->default('pending'); // 'pending', 'processing', 'ready', 'out_for_delivery', 'completed'
             $table->string('payment_status')->default('unpaid'); // 'unpaid', 'paid'

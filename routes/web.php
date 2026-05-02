@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\OrderController;
@@ -18,6 +19,8 @@ Route::middleware(['maintenance'])->group(function () {
         Route::middleware(['redirect.if.member'])->group(function () {
             Route::get('/login', [LoginController::class, 'create'])->name('login');
             Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+            Route::get('/register', [RegisterController::class, 'create'])->name('register');
+            Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
         });
 
         Route::middleware(['auth.member'])->group(function () {
@@ -27,6 +30,10 @@ Route::middleware(['maintenance'])->group(function () {
             Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices.index');
             Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
             Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+            Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+
+            Route::get('/users/create', [RegisterController::class, 'create'])->name('users.create');
+            Route::post('/users', [RegisterController::class, 'store'])->name('users.store');
         });
     });
 });

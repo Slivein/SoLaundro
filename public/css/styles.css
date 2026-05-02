@@ -73,6 +73,10 @@ a {
     margin-right: auto;
 }
 
+.ml-auto {
+    margin-left: auto;
+}
+
 .flex {
     display: flex;
 }
@@ -99,6 +103,10 @@ a {
 
 .justify-between {
     justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: flex-end;
 }
 
 .w-full {
@@ -332,6 +340,18 @@ a {
 
 .tracking-\[0\.3em\] {
     letter-spacing: 0.3em;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.text-cyan-400\/80 {
+    color: rgba(34, 211, 238, 0.8);
+}
+
+.bg-gradient-dark {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 }
 
 .text-slate-300 {

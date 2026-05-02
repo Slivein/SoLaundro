@@ -1,14 +1,14 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="w-full max-w-md rounded-3xl bg-white p-8 shadow-sm ring-1 ring-gray-200">
+    <div class="w-full max-w-md rounded-3xl bg-white ml-auto p-8 shadow-sm ring-1 ring-gray-200">
         <div class="mb-8">
             <p class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">SoLaundro</p>
             <h1 class="mt-3 text-3xl font-semibold text-gray-900">Log in</h1>
             <p class="mt-2 text-sm text-gray-600">Use your email and password to continue.</p>
         </div>
 
-        <form method="POST" action="{{ route('dashboard.login.store') }}" class="space-y-5" style="width: 50%;">
+        <form method="POST" action="{{ route('dashboard.login.store') }}" class="flex flex-col gap-4 w-full">
             @csrf
 
             <div>
